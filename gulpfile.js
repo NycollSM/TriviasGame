@@ -48,7 +48,7 @@ gulp.task('registerScript', () => {
       },
       noSource: true
     }))
-    .pipe(gulp.dist('dist'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('gameApp', () => {
@@ -60,7 +60,7 @@ gulp.task('gameApp', () => {
       },
       noSource: true
     }))
-    .pipe(gulp.dist('dist'));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('minify', () => {
@@ -105,6 +105,16 @@ gulp.task('open', () => {
 gulp.task('reload', () => {
   gulp.src(__filename)
     .pipe(connect.reload());
+});
+
+
+// Start Build 
+//var gulp = require('gulp');
+//var webpack = require('webpack-stream');
+
+gulp.task('default', function() {
+  return gulp.src('src/formRegister.js')
+    .pipe(gulp.dest('dist/'));
 });
 
 //
